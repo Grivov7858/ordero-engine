@@ -1,9 +1,6 @@
 package com.qtech.orderoengine.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity(name = "product")
@@ -16,7 +13,8 @@ public class ProductEntity {
     private Category category;
     private MenuEntity menu;
 
-    @Column(name = "id", nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -45,5 +43,29 @@ public class ProductEntity {
     @JoinColumn(name = "menu", referencedColumnName = "id")
     public MenuEntity getMenu() {
         return menu;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setMenu(MenuEntity menu) {
+        this.menu = menu;
     }
 }

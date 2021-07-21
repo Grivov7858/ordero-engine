@@ -13,12 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 @Controller
 @RequestMapping("/menu")
-//TODO create swagger configuration for this annotation
 @Api(value = "Menu Controller | Allows saving new menu and receiving existing menu")
 public class MenuController {
 
@@ -31,7 +27,7 @@ public class MenuController {
             @ApiResponse(code = 404, message = "Not found - The place does not exist", response = MenuResponse.class),
             @ApiResponse(code = 500, message = "Error - A wide range of causes, check logs", response = MenuResponse.class)})
     @GetMapping(value = "placeId/{placeId}")
-    public ResponseEntity<MenuResponse> getMenuForPlaceById(@PathVariable @NotNull Integer placeId) {
+    public ResponseEntity<MenuResponse> getMenuForPlaceById(@PathVariable Integer placeId) {
         MenuResponse menuResponse = menuService.getMenuById(placeId);
 
         return new ResponseEntity<>(menuResponse, HttpStatus.OK);
@@ -43,7 +39,7 @@ public class MenuController {
             @ApiResponse(code = 404, message = "Not found", response = MenuRequest.class),
             @ApiResponse(code = 500, message = "Error - A wide range of causes, check logs", response = MenuRequest.class)})
     @PostMapping(value = "safe/place")
-    public void safeNewMenu(@Valid @RequestBody MenuRequest menuRequest) {
+    public void safeNewMenu(@RequestBody MenuRequest menuRequest) {
         menuService.safeNewMenu(menuRequest);
     }
 }
