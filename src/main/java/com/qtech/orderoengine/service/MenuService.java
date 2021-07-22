@@ -11,7 +11,7 @@ public class MenuService {
         return null;
     }
 
-    public void safeNewMenu(final MenuRequest menuRequest) {
+    public void saveNewMenu(final MenuRequest menuRequest) {
 
     }
 }

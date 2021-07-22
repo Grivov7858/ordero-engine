@@ -33,13 +33,13 @@ public class MenuController {
         return new ResponseEntity<>(menuResponse, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Safe | Menu json")
+    @ApiOperation(value = "Save | Menu json")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Success", response = MenuRequest.class),
             @ApiResponse(code = 400, message = "Bad Request - You might forgot a parameter", response = MenuRequest.class),
             @ApiResponse(code = 404, message = "Not found", response = MenuRequest.class),
             @ApiResponse(code = 500, message = "Error - A wide range of causes, check logs", response = MenuRequest.class)})
-    @PostMapping(value = "safe/place")
-    public void safeNewMenu(@RequestBody MenuRequest menuRequest) {
-        menuService.safeNewMenu(menuRequest);
+    @PostMapping(value = "save/place")
+    public void saveNewMenu(@RequestBody MenuRequest menuRequest) {
+        menuService.saveNewMenu(menuRequest);
     }
 }
