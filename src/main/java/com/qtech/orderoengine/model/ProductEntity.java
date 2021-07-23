@@ -14,7 +14,6 @@ public class ProductEntity {
     private MenuEntity menu;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }

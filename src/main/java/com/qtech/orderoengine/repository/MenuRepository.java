@@ -8,5 +8,9 @@ import java.util.Optional;
 
 @Repository
 public interface MenuRepository extends JpaRepository<MenuEntity, Integer> {
-    Optional<MenuEntity> findById(Integer id);
+    @Override
+    Optional<MenuEntity> findById(Integer integer);
+
+    @Override
+    <S extends MenuEntity> S saveAndFlush(S s);
 }

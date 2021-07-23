@@ -2,20 +2,20 @@ package com.qtech.orderoengine.model.request;
 
 public final class MenuRequest {
 
-    private final String color;
+    private final Integer id;
 
-    private final Integer number;
+    private final String placeName;
 
-    public MenuRequest(String color, Integer number) {
-        this.color = color;
-        this.number = number;
+    public MenuRequest(Integer id, String placeName) {
+        this.id = id;
+        this.placeName = placeName;
     }
 
-    public String getColor() {
-        return color;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getNumber() {
-        return number;
+    public String getPlaceName() {
+        return placeName;
     }
 }

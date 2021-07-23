@@ -1,5 +1,6 @@
 package com.qtech.orderoengine.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.time.LocalDate;
 
 @Configuration
-public class SpringFoxConfig {
+public class ApplicationBeanConfiguration {
     @Bean
     public Docket mainConfig() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -20,5 +21,10 @@ public class SpringFoxConfig {
                 .build()
                 .directModelSubstitute(LocalDate.class, String.class)
                 .genericModelSubstitutes(ResponseEntity.class);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 }

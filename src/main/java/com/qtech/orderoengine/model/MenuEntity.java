@@ -10,7 +10,6 @@ public class MenuEntity {
     private List<ProductEntity> products;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
