@@ -12,7 +12,7 @@
     <artifactId>ordero-engine</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>ordero-engine</name>
-    <description>Backend project for ordering and viewing menu for coffes and restaurants</description>
+    <description>Backend project for ordering and viewing menu for coffees and restaurants</description>
     <properties>
         <java.version>11</java.version>
     </properties>

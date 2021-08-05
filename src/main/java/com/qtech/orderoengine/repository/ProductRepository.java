@@ -1,6 +1,6 @@
 package com.qtech.orderoengine.repository;
 
-import com.qtech.orderoengine.model.ProductEntity;
+import com.qtech.orderoengine.model.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -3,21 +3,21 @@ package com.qtech.orderoengine.model.response;
 import java.util.List;
 
 
-public final class MenuResponse {
-    private final Integer id;
+public final class PlaceResponse {
+    private final Integer placeId;
 
     private final String placeName;
 
     private final List<ProductResponse> products;
 
-    public MenuResponse(Integer id, String placeName, List<ProductResponse> products) {
-        this.id = id;
+    public PlaceResponse(Integer placeId, String placeName, List<ProductResponse> products) {
+        this.placeId = placeId;
         this.placeName = placeName;
         this.products = products;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getPlaceId() {
+        return placeId;
     }
 
     public String getPlaceName() {

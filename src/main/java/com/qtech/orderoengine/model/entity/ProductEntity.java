@@ -1,4 +1,6 @@
-package com.qtech.orderoengine.model;
+package com.qtech.orderoengine.model.entity;
+
+import com.qtech.orderoengine.model.Category;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -6,16 +8,17 @@ import java.math.BigDecimal;
 @Entity(name = "product")
 public class ProductEntity {
 
-    private Integer id;
+    private Integer productId;
     private String name;
     private String description;
     private BigDecimal price;
     private Category category;
-    private MenuEntity menu;
+    private PlaceEntity place;
 
     @Id
-    public Integer getId() {
-        return id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    public Integer getProductId() {
+        return productId;
     }
 
     @Column(name = "name")
@@ -38,14 +41,14 @@ public class ProductEntity {
         return category;
     }
 
-    @ManyToOne(targetEntity = MenuEntity.class)
-    @JoinColumn(name = "menu", referencedColumnName = "id")
-    public MenuEntity getMenu() {
-        return menu;
+    @ManyToOne(targetEntity = PlaceEntity.class)
+    @JoinColumn(name = "place", referencedColumnName = "placeId")
+    public PlaceEntity getPlace() {
+        return place;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public void setName(String name) {
@@ -64,7 +67,7 @@ public class ProductEntity {
         this.category = category;
     }
 
-    public void setMenu(MenuEntity menu) {
-        this.menu = menu;
+    public void setPlace(PlaceEntity place) {
+        this.place = place;
     }
 }

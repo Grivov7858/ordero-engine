@@ -5,24 +5,18 @@ import com.qtech.orderoengine.model.Category;
 import java.math.BigDecimal;
 
 public final class ProductRequest {
-    private final Integer id;
     private final Category category;
     private final String description;
     private final String name;
     private final BigDecimal price;
-    private final Integer menuId;
+    private final Integer placeId;
 
-    public ProductRequest(Integer id, Category category, String description, String name, BigDecimal price, Integer menuId) {
-        this.id = id;
+    public ProductRequest(Category category, String description, String name, BigDecimal price, Integer placeId) {
         this.category = category;
         this.description = description;
         this.name = name;
         this.price = price;
-        this.menuId = menuId;
-    }
-
-    public Integer getId() {
-        return id;
+        this.placeId = placeId;
     }
 
     public Category getCategory() {
@@ -41,7 +35,7 @@ public final class ProductRequest {
         return price;
     }
 
-    public Integer getMenuId() {
-        return menuId;
+    public Integer getPlaceId() {
+        return placeId;
     }
 }
