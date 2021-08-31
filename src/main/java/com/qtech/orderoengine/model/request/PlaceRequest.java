@@ -13,7 +13,6 @@ public final class PlaceRequest {
     public PlaceRequest(String placeName, String description) {
         this.placeName = placeName;
         this.description = description;
-
     }
 
     public String getPlaceName() {

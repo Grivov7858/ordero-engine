@@ -41,7 +41,7 @@ public class ProductService {
         List<ProductResponse> products = new ArrayList<>();
 
         for (ProductEntity productEntity : productEntities) {
-            products.add(new ProductResponse(productEntity.getProductId(),
+            products.add(new ProductResponse(productEntity.getId(),
                     productEntity.getName(),
                     productEntity.getDescription(),
                     productEntity.getPrice(),

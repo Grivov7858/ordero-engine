@@ -61,7 +61,7 @@ public class OrderService {
             List<Integer> productIds = massEntity.getProductIds();
             List<ProductResponse> products = getAllProductsByIds(productIds);
 
-            masses.add(new MassResponse(massEntity.getMassId(), products));
+            masses.add(new MassResponse(massEntity.getId(), products));
         }
 
 

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @Entity(name = "product")
 public class ProductEntity {
 
-    private Integer productId;
+    private Integer id;
     private String name;
     private String description;
     private BigDecimal price;
@@ -17,8 +17,8 @@ public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public Integer getProductId() {
-        return productId;
+    public Integer getId() {
+        return id;
     }
 
     @Column(name = "name")
@@ -41,14 +41,14 @@ public class ProductEntity {
         return category;
     }
 
-    @ManyToOne(targetEntity = PlaceEntity.class)
-    @JoinColumn(name = "place", referencedColumnName = "placeId")
-    public PlaceEntity getPlace() {
-        return place;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
+    @ManyToOne(targetEntity = PlaceEntity.class)
+    @JoinColumn(name = "place_id", referencedColumnName = "id")
+    public PlaceEntity getPlace() {
+        return place;
     }
 
     public void setName(String name) {

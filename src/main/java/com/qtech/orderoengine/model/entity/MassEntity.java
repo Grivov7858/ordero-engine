@@ -6,17 +6,21 @@ import java.util.List;
 @Entity(name = "mass")
 public class MassEntity {
 
-    private Integer massId;
+    private Integer id;
     private PlaceEntity place;
     private List<Integer> productIds;
 
     @Id
-    public Integer getMassId() {
-        return massId;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @ManyToOne(targetEntity = PlaceEntity.class)
-    @JoinColumn(name = "place", referencedColumnName = "placeId")
+    @JoinColumn(name = "place", referencedColumnName = "id")
     public PlaceEntity getPlace() {
         return place;
     }
@@ -24,15 +28,11 @@ public class MassEntity {
     @ElementCollection
     @CollectionTable(
             name = "mass_products",
-            joinColumns = @JoinColumn(name = "mass_id")
+            joinColumns = @JoinColumn(name = "id")
     )
     @Column(name = "product_id")
     public List<Integer> getProductIds() {
         return productIds;
-    }
-
-    public void setMassId(Integer massId) {
-        this.massId = massId;
     }
 
     public void setPlace(PlaceEntity place) {

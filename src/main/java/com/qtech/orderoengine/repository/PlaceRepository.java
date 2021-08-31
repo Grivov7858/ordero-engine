@@ -13,4 +13,5 @@ public interface PlaceRepository extends JpaRepository<PlaceEntity, Integer> {
 
     @Override
     <S extends PlaceEntity> S saveAndFlush(S s);
+
 }

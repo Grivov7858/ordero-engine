@@ -22,18 +22,22 @@ public class PlaceService {
     private ProductService productService;
 
     @Autowired
+    private AppUserService appUserService;
+
+    @Autowired
     private ModelMapper modelMapper;
 
     public PlaceResponse getPlaceById(final Integer placeId) throws NotFoundException {
         PlaceEntity placeEntity = placeRepository.findById(placeId).orElseThrow(() -> new NotFoundException("Place not found for id " + placeId));
 
         List<ProductResponse> products = productService.remodelProductEntity(placeEntity.getProducts());
-        return new PlaceResponse(placeEntity.getPlaceId(), placeEntity.getPlaceName(), products);
+        return new PlaceResponse(placeEntity.getId(), placeEntity.getPlaceName(), products);
     }
 
     public void saveNewPlace(final PlaceRequest placeRequest) {
+//        AppUser appUser = appUserService.getById(placeRequest.getOwner());
         PlaceEntity placeEntity = this.modelMapper.map(placeRequest, PlaceEntity.class);
-
+//        placeEntity.setOwner(appUser);
         placeRepository.saveAndFlush(placeEntity);
     }
 }
