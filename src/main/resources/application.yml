@@ -1,0 +1,23 @@
+server:
+    port: 9191
+spring:
+    datasource:
+        url: jdbc:sqlserver://waitless.database.windows.net:1433;database=waitless_db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+        username: waitless
+        password: fwbuie78A
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+            dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+#server:
+#    port: 8080
+#spring:
+#    datasource:
+#        password: 123456789
+#        url: jdbc:postgresql://localhost:5432/ordero_db?useSSL=false&createDatabaseIfNotExist=true
+#        username: postgres
+#    jpa:
+#        hibernate:
+#            ddl-auto: update
